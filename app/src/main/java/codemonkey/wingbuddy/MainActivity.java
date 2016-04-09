@@ -180,6 +180,12 @@ public class MainActivity extends AppCompatActivity {
                 }).show();
     }
 
+    public void summonWingman(final View view) {
+        Intent myIntent = new Intent(MainActivity.this, WingmanListActivity.class);
+        myIntent.putExtra("user_name", userName);
+        startActivity(myIntent);
+    }
+
     /**
      * Perform logout
      */
