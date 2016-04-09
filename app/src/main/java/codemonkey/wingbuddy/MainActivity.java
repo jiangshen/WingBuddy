@@ -13,15 +13,57 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
+
+    Button refreshButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Firebase.setAndroidContext(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        final long longDateValue[] = new long[1];
+
+
+        Firebase firebase = new Firebase("https://wingbuddy.firebaseio.com/");
+        final TextView timeStampView = (TextView) findViewById(R.id.tv_wingman_status);
+
+        firebase.child("lastSeen").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                longDateValue[0] = (Long) dataSnapshot.getValue();
+                updateDateText(longDateValue[0], timeStampView);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                //Bad things happen
+            }
+        });
+
+        refreshButton = (Button) findViewById(R.id.button_refresh_status);
+        refreshButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateDateText(longDateValue[0], timeStampView);
+            }
+        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +121,38 @@ public class MainActivity extends AppCompatActivity {
                         dialog.cancel();
                     }
                 }).show();
+    }
+
+    public void updateDateText(long longDateValue, TextView timeStampView) {
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yy");
+        Date date = new Date(longDateValue);
+        String strDate = formatter.format(date);
+        formatter = new SimpleDateFormat("hh:mm:ss");
+        String strTime = formatter.format(date);
+        String dateText = "Movement last sensed at " + strTime + " on " + strDate;
+        boolean roomIsEmpty = System.currentTimeMillis() - longDateValue > 60000;
+        if (roomIsEmpty) {
+            dateText +="\nRoom is probably empty\nMovement last sensed more than 1 minute ago";
+        } else {
+            dateText +="\nRoom is probably not empty\nMovement last sensed less than 1 minute ago";
+        }
+        if (System.currentTimeMillis() - longDateValue > 86400000) {
+            dateText += "\nYour room has been empty for more than one day.\nAre you sure your roommate isn't dead?";
+        } else {
+            System.out.println(System.currentTimeMillis() - longDateValue);
+            long systemDateValue = System.currentTimeMillis();
+            Date differenceDate = new Date(systemDateValue - longDateValue + 2000);
+            Date systemDate = new Date(systemDateValue);
+            formatter = new SimpleDateFormat("hh");
+            dateText += "\nMovement last sensed " + (systemDateValue - longDateValue)/3600000;
+            //            dateText += "\nMovement last sensed " + formatter.format(new Date(systemDate.getHours()*3600000 - date.getHours()*3600000));
+            formatter = new SimpleDateFormat("mm");
+            dateText += " hours, " + differenceDate.getMinutes();
+            formatter = new SimpleDateFormat("ss");
+            dateText += " minutes and " +differenceDate.getSeconds();
+            dateText += " seconds ago";
+        }
+        timeStampView.setText(dateText);
     }
 
 }

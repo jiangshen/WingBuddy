@@ -1,12 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
-
-    <item
-        jar="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="3dda27f432ab726a90731baec3535841c044722d">
-        <dex dex="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_89f1ed33a5c24fd9b1b29a6f26f4c9dba32b8051/classes.dex" />
-    </item>
-
-</items>
+<items version="2" />
