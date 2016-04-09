@@ -11,11 +11,15 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.telephony.gsm.SmsManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -34,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
     TextView tvRoomStatus;
     TextView tvLastSeen;
     TextView tvTimeElapsed;
+
+    Switch musicSwitch;
 
     String userName;
 
@@ -56,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         final long longDateValue[] = new long[1];
 
-        Firebase firebase = new Firebase("https://wingbuddy.firebaseio.com/");
+        final Firebase firebase = new Firebase("https://wingbuddy.firebaseio.com/");
         tvRoomStatus = (TextView) findViewById(R.id.tv_wingman_status);
         tvLastSeen = (TextView) findViewById(R.id.tv_wingman_last_seen);
         tvTimeElapsed = (TextView) findViewById(R.id.tv_time_elapsed);
@@ -98,14 +104,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        musicSwitch = (Switch) findViewById(R.id.sw_play);
+        musicSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onCheckedChanged(CompoundButton compoundButton, boolean bChecked) {
+                if (bChecked) {
+                    firebase.child("music").setValue("True");
+                    Snackbar.make(compoundButton.getRootView(), "Have some music for your soul eh?", Snackbar.LENGTH_SHORT).show();
+                } else {
+                    firebase.child("music").setValue("False");
+                }
             }
         });
+
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
@@ -129,6 +148,36 @@ public class MainActivity extends AppCompatActivity {
                 logoutAction();
         }
         return (super.onOptionsItemSelected(menuItem));
+    }
+
+    public void notifyRoommate(final View view) {
+
+        final String message = "Hey roomie, I would greatly appreciate if you could leave the room for a while, I have something important to do ;)";
+
+        new android.app.AlertDialog.Builder(MainActivity.this)
+                .setTitle("Wing Buddy")
+                .setMessage("This will send an SMS to:\n\n" + " Your roommate: " + currentUser.getRoommatePhoneNumber() + "\n\nShall I continue?")
+                .setPositiveButton("YES",
+                        new DialogInterface.OnClickListener() {
+                            @TargetApi(11)
+                            public void onClick(DialogInterface dialog, int id) {
+                                try {
+                                    SmsManager smsManager = SmsManager.getDefault();
+                                    smsManager.sendTextMessage(("+1"+currentUser.getRoommatePhoneNumber()), null, message, null, null);
+                                    Snackbar.make(view, "SMS sent", Snackbar.LENGTH_SHORT).show();
+                                }
+                                catch (Exception e) {
+                                    Snackbar.make(view, "SMS failed, please try again.", Snackbar.LENGTH_SHORT).show();
+                                    e.printStackTrace();
+                                }
+                            }
+                        })
+                .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @TargetApi(11)
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                }).show();
     }
 
     /**
