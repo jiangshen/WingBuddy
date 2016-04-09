@@ -3,6 +3,7 @@ package codemonkey.wingbuddy;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 
@@ -136,7 +137,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private boolean isPhoneNumberValid(String phoneNo) {
-        return phoneNo.length() > 8;
+        return phoneNo.length() > 6;
     }
 
     /**
@@ -221,7 +222,8 @@ public class LoginActivity extends AppCompatActivity {
             if (success) {
                 finish();
                 // TODO Transition here
-                
+                Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(myIntent);
             } else {
                 mPhoneNoView.setError("Phone number is invalid");
                 mPhoneNoView.requestFocus();
