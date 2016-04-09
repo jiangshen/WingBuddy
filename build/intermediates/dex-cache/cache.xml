@@ -2,20 +2,6 @@
 <items version="2" >
 
     <item
-        jar="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.3.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
-        <dex dex="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.3.0_3052d0b1d040a93309f4e70b7b0591d15502a475/classes.dex" />
-    </item>
-    <item
-        jar="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.3.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="debf30ce0a7560396b6235edef77e447006454c2">
-        <dex dex="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.3.0_dce2a036c384a1853f57551ea77fe2d0c62da337/classes.dex" />
-    </item>
-    <item
         jar="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/jars/classes.jar"
         jumboMode="true"
         revision="23.0.2"
@@ -42,6 +28,20 @@
         revision="23.0.2"
         sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
         <dex dex="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.3.0_0d51e75733759c26fbff03c3eba8c4ebdcbc48e7/classes.dex" />
+    </item>
+    <item
+        jar="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.3.0_3052d0b1d040a93309f4e70b7b0591d15502a475/classes.dex" />
+    </item>
+    <item
+        jar="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="debf30ce0a7560396b6235edef77e447006454c2">
+        <dex dex="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.3.0_dce2a036c384a1853f57551ea77fe2d0c62da337/classes.dex" />
     </item>
     <item
         jar="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.3.0/jars/classes.jar"
