@@ -26,6 +26,7 @@ import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,10 +35,19 @@ public class MainActivity extends AppCompatActivity {
     TextView tvLastSeen;
     TextView tvTimeElapsed;
 
+    String userName;
+
+    String friendNumber;
+    User currentUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Get the message from the intent
+        Intent intent = getIntent();
+        userName = intent.getStringExtra("user_name");
 
         Firebase.setAndroidContext(this);
 
@@ -56,6 +66,22 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 longDateValue[0] = (Long) dataSnapshot.getValue();
                 updateDateText(longDateValue[0], tvRoomStatus, tvLastSeen, tvTimeElapsed);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                //Bad things happen
+            }
+        });
+
+        firebase.child("Users").child(userName).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+//                longDateValue[0] = (Long) dataSnapshot.getValue();
+//                updateDateText(longDateValue[0], tvRoomStatus, tvLastSeen, tvTimeElapsed);
+                currentUser = new User((Map) dataSnapshot.getValue());
+                friendNumber = currentUser.getRoommatePhoneNumber();
+                System.out.println("Friend Number: " + friendNumber);
             }
 
             @Override

@@ -21,6 +21,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.firebase.client.Firebase;
+
 /**
  * A login screen that offers login via email/password.
  */
@@ -47,6 +49,8 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Firebase.setAndroidContext(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -224,7 +228,22 @@ public class LoginActivity extends AppCompatActivity {
             if (success) {
                 finish();
                 // TODO Transition here
+
+                Firebase firebase = new Firebase("https://wingbuddy.firebaseio.com/");
+
+                String userName = mUserNameView.getText().toString();
+                String phoneNumber = mPhoneNoView.getText().toString();
+                String friendPhoneNumber = mFriendPhoneNoView.getText().toString();
+
+                User user = new User(userName, phoneNumber, friendPhoneNumber);
+
+                firebase.child("Users").child(userName).setValue(user);
+
+
                 Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
+
+                myIntent.putExtra("user_name", userName);
+
                 startActivity(myIntent);
             } else {
                 mPhoneNoView.setError("Phone number is invalid");
@@ -239,4 +258,3 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 }
-

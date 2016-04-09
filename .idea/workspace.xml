@@ -22,6 +22,7 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Friend" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
@@ -32,6 +33,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/codemonkey/wingbuddy/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/codemonkey/wingbuddy/LoginActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/codemonkey/wingbuddy/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/codemonkey/wingbuddy/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/codemonkey/wingbuddy/User.java" afterPath="$PROJECT_DIR$/app/src/main/java/codemonkey/wingbuddy/User.java" />
     </list>
     <ignored path="WingBuddy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,27 +55,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/codemonkey/wingbuddy/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3171207">
-              <caret line="70" column="84" selection-start-line="70" selection-start-column="84" selection-end-line="70" selection-end-column="84" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="244" column="44" selection-start-line="244" selection-start-column="35" selection-end-line="244" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2124#2492#0" expanded="true" />
+                <element signature="e#2491#2492#0" expanded="true" />
+                <element signature="e#2697#2843#0" expanded="true" />
+                <element signature="e#2842#2843#0" expanded="true" />
+                <element signature="e#3826#3868#0" expanded="true" />
+                <element signature="e#4069#4109#0" expanded="true" />
+                <element signature="e#4257#4296#0" expanded="true" />
+                <element signature="e#4890#4891#0" expanded="true" />
+                <element signature="e#4917#4918#0" expanded="true" />
+                <element signature="e#4975#4976#0" expanded="true" />
+                <element signature="e#5018#5019#0" expanded="true" />
+                <element signature="e#5749#5986#0" expanded="true" />
+                <element signature="e#5985#5986#0" expanded="true" />
+                <element signature="e#6180#6416#0" expanded="true" />
+                <element signature="e#6415#6416#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/codemonkey/wingbuddy/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="160" column="28" selection-start-line="160" selection-start-column="28" selection-end-line="160" selection-end-column="28" />
+            <state vertical-scroll-proportion="-1.5951157">
+              <caret line="40" column="20" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2311#2518#0" expanded="true" />
-                <element signature="e#2517#2518#0" expanded="true" />
+                <element signature="e#3263#3470#0" expanded="true" />
+                <element signature="e#3469#3470#0" expanded="true" />
+                <element signature="e#4630#4647#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/codemonkey/wingbuddy/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="44" column="15" selection-start-line="44" selection-start-column="15" selection-end-line="44" selection-end-column="15" />
+              <folding>
+                <element signature="e#1040#1041#0" expanded="true" />
+                <element signature="e#1073#1074#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1674,10 +1706,11 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/codemonkey/wingbuddy/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/codemonkey/wingbuddy/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/codemonkey/wingbuddy/User.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/codemonkey/wingbuddy/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -2130,7 +2163,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32754344" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32754344" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -2176,6 +2209,21 @@
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2124#2492#0" expanded="true" />
+            <element signature="e#2491#2492#0" expanded="true" />
+            <element signature="e#2697#2843#0" expanded="true" />
+            <element signature="e#2842#2843#0" expanded="true" />
+            <element signature="e#3826#3868#0" expanded="true" />
+            <element signature="e#4069#4109#0" expanded="true" />
+            <element signature="e#4257#4296#0" expanded="true" />
+            <element signature="e#4890#4891#0" expanded="true" />
+            <element signature="e#4917#4918#0" expanded="true" />
+            <element signature="e#4975#4976#0" expanded="true" />
+            <element signature="e#5018#5019#0" expanded="true" />
+            <element signature="e#5749#5986#0" expanded="true" />
+            <element signature="e#5985#5986#0" expanded="true" />
+            <element signature="e#6180#6416#0" expanded="true" />
+            <element signature="e#6415#6416#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2194,8 +2242,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2311#2518#0" expanded="true" />
-            <element signature="e#2517#2518#0" expanded="true" />
+            <element signature="e#3263#3470#0" expanded="true" />
+            <element signature="e#3469#3470#0" expanded="true" />
+            <element signature="e#4630#4647#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2253,13 +2302,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/codemonkey/wingbuddy/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3084833">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -2324,18 +2366,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/codemonkey/wingbuddy/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="160" column="28" selection-start-line="160" selection-start-column="28" selection-end-line="160" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2311#2518#0" expanded="true" />
-            <element signature="e#2517#2518#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.8867924">
@@ -2354,12 +2384,51 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/codemonkey/wingbuddy/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="44" column="15" selection-start-line="44" selection-start-column="15" selection-end-line="44" selection-end-column="15" />
+          <folding>
+            <element signature="e#1040#1041#0" expanded="true" />
+            <element signature="e#1073#1074#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/codemonkey/wingbuddy/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3171207">
-          <caret line="70" column="84" selection-start-line="70" selection-start-column="84" selection-end-line="70" selection-end-column="84" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="244" column="44" selection-start-line="244" selection-start-column="35" selection-end-line="244" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2124#2492#0" expanded="true" />
+            <element signature="e#2491#2492#0" expanded="true" />
+            <element signature="e#2697#2843#0" expanded="true" />
+            <element signature="e#2842#2843#0" expanded="true" />
+            <element signature="e#3826#3868#0" expanded="true" />
+            <element signature="e#4069#4109#0" expanded="true" />
+            <element signature="e#4257#4296#0" expanded="true" />
+            <element signature="e#4890#4891#0" expanded="true" />
+            <element signature="e#4917#4918#0" expanded="true" />
+            <element signature="e#4975#4976#0" expanded="true" />
+            <element signature="e#5018#5019#0" expanded="true" />
+            <element signature="e#5749#5986#0" expanded="true" />
+            <element signature="e#5985#5986#0" expanded="true" />
+            <element signature="e#6180#6416#0" expanded="true" />
+            <element signature="e#6415#6416#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/codemonkey/wingbuddy/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.5951157">
+          <caret line="40" column="20" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3263#3470#0" expanded="true" />
+            <element signature="e#3469#3470#0" expanded="true" />
+            <element signature="e#4630#4647#0" expanded="true" />
           </folding>
         </state>
       </provider>
