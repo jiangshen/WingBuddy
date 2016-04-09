@@ -6,12 +6,14 @@ import java.util.Map;
 public class User {
     private String userName;
     private String phoneNumber;
+    private String roommatePhoneNumber;
 
     private int wingPoints;
 
-    public User(String userName, String phoneNumber) {
+    public User(String userName, String phoneNumber, String roommatePhoneNumber) {
         this.userName = userName;
         this.phoneNumber = phoneNumber;
+        this.roommatePhoneNumber = roommatePhoneNumber;
         wingPoints = 0;
     }
 
@@ -19,6 +21,7 @@ public class User {
         this.userName = ((String) map.get("userName"));
         this.phoneNumber = ((String) map.get("phoneNumber"));
         this.wingPoints = ((int) map.get("wingPoints"));
+        this.roommatePhoneNumber = ((String) map.get("roommatePhoneNumber"));
     }
 
     public String getName() {
@@ -27,6 +30,10 @@ public class User {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    publicint getRoommatePhoneNumber() {
+        return roommatePhoneNumber;
     }
 
     public int getWingPoints() {
