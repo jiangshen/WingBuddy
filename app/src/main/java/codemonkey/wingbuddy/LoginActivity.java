@@ -41,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     // UI references.
     private AutoCompleteTextView mUserNameView;
     private EditText mPhoneNoView;
+    private EditText mFriendPhoneNoView;
     private View mProgressView;
     private View mLoginFormView;
 
@@ -67,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                 return false;
             }
         });
+        mFriendPhoneNoView = (EditText) findViewById(R.id.text_friend_phone_number);
 
         Button mSignInButton = (Button) findViewById(R.id.button_sign_in);
         mSignInButton.setOnClickListener(new OnClickListener() {
