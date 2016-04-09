@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WingBuddy</string>
+    <string name="app_name">Wing Buddy</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Name</string>
