@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.3.0_3052d0b1d040a93309f4e70b7b0591d15502a475/classes.dex" />
+    </item>
+    <item
+        jar="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="debf30ce0a7560396b6235edef77e447006454c2">
+        <dex dex="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.3.0_dce2a036c384a1853f57551ea77fe2d0c62da337/classes.dex" />
+    </item>
+    <item
+        jar="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.3.0_22b0b0dcc1f7235f6bbbaecedacedc26b33e172e/classes.dex" />
+    </item>
+    <item
+        jar="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="561be0e12d28699c5b72d95aa118ec099b8b0582">
+        <dex dex="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_89f1ed33a5c24fd9b1b29a6f26f4c9dba32b8051/classes.dex" />
+    </item>
+    <item
+        jar="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/libs/internal_impl-23.3.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
+        <dex dex="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.3.0_4d493314ccb21bb139bc42793ee11043a22740a9/classes.dex" />
+    </item>
+    <item
+        jar="/Users/jiangshen/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.3.0/support-annotations-23.3.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
+        <dex dex="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.3.0_0d51e75733759c26fbff03c3eba8c4ebdcbc48e7/classes.dex" />
+    </item>
+    <item
+        jar="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
+        <dex dex="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.3.0_5f9309e24592e1b442ecda51b7cc050f9bba5665/classes.dex" />
+    </item>
+    <item
+        jar="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
+        <dex dex="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.3.0_ebb28242eb60e3805300c1bc4505c2afa78df2ff/classes.dex" />
+    </item>
+    <item
+        jar="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="435b11716caaddacabf2e27bb025529dbe7ae017">
+        <dex dex="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_16e90b74e41c1bd223479963fa0fe2ff86b72c31/classes.dex" />
+    </item>
+    <item
+        jar="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/exploded-aar/com.android.support/design/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="f0001e71cea6ae432a00021c6f727f5ef0f3d27e">
+        <dex dex="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.3.0_ef2d2befeee36cf6b7ed29b739c824d17521c4dc/classes.dex" />
+    </item>
+
+</items>
