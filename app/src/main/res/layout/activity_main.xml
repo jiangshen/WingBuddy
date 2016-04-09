@@ -44,13 +44,71 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/ll_wingman_status_wrapper">
-
-                <TextView
+                
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tv_wingman_status"
-                    android:text="Wingman Status"
-                    android:padding="18dp"/>
+                    android:orientation="horizontal"
+                    android:id="@+id/ll_wingman_room_status_wrapper">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="     Room Status"
+                        android:padding="18dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_wingman_status"
+                        android:text="Wingman Status"
+                        android:padding="18dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/ll_wingman_last_seen_wrapper">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="Last Movement"
+                        android:padding="18dp"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_wingman_last_seen"
+                            android:text="Wingman Status"
+                            android:paddingTop="18dp"
+                            android:paddingLeft="18dp"
+                            android:paddingRight="18dp"
+                            android:paddingBottom="8dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_time_elapsed"
+                            android:text="Time Elapsed"
+                            android:paddingBottom="18dp"
+                            android:paddingLeft="18dp"
+                            android:paddingRight="18dp" />
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
 
                 <Button
                     android:layout_width="wrap_content"
@@ -77,7 +135,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="4dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginEnd="4dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginBottom="4dp"
                 android:focusable="true"
                 android:clickable="true"
@@ -87,11 +145,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Notify"
+                    android:text="Notify\nRoommate"
                     android:gravity="center"
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
-                    android:textSize="24sp"
+                    android:textSize="18sp"
                     android:textColor="#fff"
                     android:background="#009688"/>
 
@@ -101,7 +159,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginTop="4dp"
-                android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
                 android:layout_marginBottom="4dp"
                 android:focusable="true"
@@ -121,8 +178,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Play"
-                        android:textSize="24sp"
+                        android:gravity="center"
+                        android:text="Set\nMood"
+                        android:textSize="18sp"
                         android:textColor="#fff" />
 
                     <Switch
@@ -141,7 +199,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="4dp"
                 android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginBottom="4dp"
                 android:focusable="true"
                 android:clickable="true"
@@ -151,11 +209,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Summon"
+                    android:text="Summon\nWingman"
                     android:gravity="center"
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
-                    android:textSize="24sp"
+                    android:textSize="18sp"
                     android:textColor="#fff"
                     android:background="#E91E63"/>
 
