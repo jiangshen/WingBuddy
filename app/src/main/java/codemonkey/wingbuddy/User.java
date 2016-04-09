@@ -29,17 +29,21 @@ public class User {
 
     public int increaseWingPoints() {
         wingPoints++;
+        return wingPoints;
     }
 
     public int increaseWingPoints(int num) {
         wingPoints+=num;
+        return wingPoints;
     }
 
     public int decreaseWingPoints() {
-        wingPoints-;
+        wingPoints--;
+        return wingPoints;
     }
 
     public int decreaseWingPoints(int num) {
         wingPoints-=num;
+        return wingPoints;
     }
 }
