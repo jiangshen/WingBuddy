@@ -129,7 +129,7 @@
             android:layout_height="wrap_content"
             android:text="CodeMonkey ❤ HackEmory"
             android:textSize="14sp"
-            android:textColor="#00A1887F"
+            android:textColor="#A1887F"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"/>
     </RelativeLayout>
