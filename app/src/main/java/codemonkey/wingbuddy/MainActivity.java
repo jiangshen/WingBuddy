@@ -239,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
             long minute = differenceDate.getMinutes();
             long second = differenceDate.getSeconds();
 
-            timeElapsed += "Time Elapsed: " + hour + ((hour > 1) ? " hours, " : " hour, ")
+            timeElapsed += hour + ((hour > 1) ? " hours, " : " hour, ")
                     + minute + ((minute > 1) ? " minutes and " : " minute and ")
                     + second + ((second > 1) ? " seconds" : " second");
 

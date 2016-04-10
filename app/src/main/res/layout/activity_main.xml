@@ -55,7 +55,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:text="     Room Status"
+                        android:text="          Room Status"
                         android:padding="18dp"/>
 
                     <TextView
@@ -77,7 +77,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:text="Last Movement"
+                        android:text="Room is empty for"
                         android:padding="18dp"/>
 
                     <LinearLayout
@@ -86,23 +86,28 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/tv_wingman_last_seen"
-                            android:text="Wingman Status"
-                            android:paddingTop="18dp"
-                            android:paddingLeft="18dp"
-                            android:paddingRight="18dp"
-                            android:paddingBottom="8dp"/>
-
-                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/tv_time_elapsed"
                             android:text="Time Elapsed"
+                            android:paddingTop="18dp"
+                            android:paddingLeft="18dp"
+                            android:paddingRight="18dp"
+                            android:paddingBottom="8dp"
+                             />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_wingman_last_seen"
+                            android:text="Wingman Status"
                             android:paddingBottom="18dp"
                             android:paddingLeft="18dp"
-                            android:paddingRight="18dp" />
+                            android:paddingRight="18dp"
+                            android:visibility="gone"
+                            />
+
+
 
                     </LinearLayout>
 
