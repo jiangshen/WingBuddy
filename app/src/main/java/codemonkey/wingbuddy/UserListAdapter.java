@@ -66,8 +66,6 @@ public class UserListAdapter extends ArrayAdapter<HashMap> {
     //            stringDate = "Shared: " + splitDate[0] + " " + splitDate[1] + " " + splitDate[2] + ", " + splitDate[3] + " ";
     //            timeText.setText(stringDate);
     //        }
-
-
         return convertView;
     }
 }

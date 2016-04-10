@@ -1,14 +1,20 @@
 package codemonkey.wingbuddy;
 
+import android.annotation.TargetApi;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.telephony.gsm.SmsManager;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
@@ -45,6 +51,18 @@ public class WingmanListActivity extends AppCompatActivity {
 
         userListView = (ListView) findViewById(R.id.user_list_view);
         userListView.setAdapter(userListAdapter);
+
+        userListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                User o = (User) userListView.getItemAtPosition(position);
+//                System.out.println(o.getName() + ", FUCK: " + position );
+                notifyWingMan(arg1, o);
+//                String str=(String)o;//As you are using Default String Adapter
+//                Toast.makeText(getApplicationContext(),str,Toast.LENGTH_SHORT).show();
+            }
+        });
 
         Firebase.setAndroidContext(this);
         final Firebase firebase = new Firebase("https://wingbuddy.firebaseio.com/");
@@ -88,6 +106,36 @@ public class WingmanListActivity extends AppCompatActivity {
         });
 
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    public void notifyWingMan(final View view, final User user) {
+
+        final String message = "Hey " + user.getName() + ", could you be my Wing Buddy? Text me back at this number if you can help me out.";
+
+        new AlertDialog.Builder(WingmanListActivity.this)
+                .setTitle("Wing Buddy")
+                .setMessage("This will send an SMS to: \n\n" + user.getName() + ": " + user.getPhoneNumber() + "\n\nShall I continue?")
+                .setPositiveButton("YES",
+                        new DialogInterface.OnClickListener() {
+                            @TargetApi(11)
+                            public void onClick(DialogInterface dialog, int id) {
+                                try {
+                                    SmsManager smsManager = SmsManager.getDefault();
+                                    smsManager.sendTextMessage(user.getPhoneNumber(), null, message, null, null);
+                                    Snackbar.make(view, "SMS sent", Snackbar.LENGTH_SHORT).show();
+                                }
+                                catch (Exception e) {
+                                    Snackbar.make(view, "SMS failed, please try again.", Snackbar.LENGTH_SHORT).show();
+                                    e.printStackTrace();
+                                }
+                            }
+                        })
+                .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @TargetApi(11)
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                }).show();
     }
 
 
