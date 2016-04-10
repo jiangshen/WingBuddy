@@ -211,7 +211,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Summon\nWingman"
+                    android:text="Summon\nWing Buddy"
                     android:gravity="center"
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"

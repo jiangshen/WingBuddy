@@ -20,7 +20,7 @@ public class User {
     }
 
     public User(Map map) {
-        this.userName = ((String) map.get("userName"));
+        this.userName = ((String) map.get("name"));
         this.phoneNumber = ((String) map.get("phoneNumber"));
         this.wingPoints = ((long) map.get("wingPoints"));
         this.roommatePhoneNumber = ((String) map.get("roommatePhoneNumber"));
