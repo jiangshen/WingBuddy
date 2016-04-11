@@ -54,7 +54,7 @@
         jar="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="536425a24cd8ea518e2c5f763f44a8889b5bc367">
+        sha1="f7598d3e665849a90a85b8f02fb1693f196387bb">
         <dex dex="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_16e90b74e41c1bd223479963fa0fe2ff86b72c31/classes.dex" />
     </item>
     <item
@@ -96,7 +96,7 @@
         jar="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="0bc376455e68e0b0b97a19c1b974439e245069a5">
+        sha1="c35a2e94d745ed659538b56e1888a94733129971">
         <dex dex="/Users/jiangshen/Documents/AndroidStudioProjects/WingBuddy/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_89f1ed33a5c24fd9b1b29a6f26f4c9dba32b8051/classes.dex" />
     </item>
     <item
