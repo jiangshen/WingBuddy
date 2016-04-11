@@ -8,3 +8,6 @@ Thanks to CodeMonkeys WingBuddy comes to the rescue!
 WingBuddy is a platform that is spread accross multiple devices, ranging from microprocessors with IoT cores to mobile devices. With your WingBuddy app you can see whether your room is empty or not, can notify your roommate instantly with a press of a single button of your special guest, summon your WingBuddy, if you need help with anything and collect points as you help others and be a good WingBuddy. 
 
 ![HackEmory](/Screenshots/Award.jpg?raw=true)
+![HackEmory](/Screenshots/Login.jpg?raw=true)
+![HackEmory](/Screenshots/main_empty.jpg?raw=true)
+![HackEmory](/Screenshots/main_occupied.jpg?raw=true)
