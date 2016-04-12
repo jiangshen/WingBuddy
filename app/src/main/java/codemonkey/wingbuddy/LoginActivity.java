@@ -5,6 +5,9 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 
@@ -13,6 +16,8 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,12 +33,16 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.Profile;
+import com.facebook.ProfileTracker;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.firebase.client.Firebase;
 
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.FacebookSdk;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * A login screen that offers login via email/password.
@@ -68,6 +77,21 @@ public class LoginActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(
+                    "codemonkey.wingbuddy",
+                    PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+
+        } catch (NoSuchAlgorithmException e) {
+
+        }
+
 //        Firebase
         Firebase.setAndroidContext(this);
 
@@ -84,11 +108,24 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 AccessToken accessToken = loginResult.getAccessToken();
-                Profile profile = Profile.getCurrentProfile();
-                if(profile != null){
-                    transition();
+                Profile profile;
+                ProfileTracker mProfileTracker;
+                if(Profile.getCurrentProfile() == null) {
+                    mProfileTracker = new ProfileTracker() {
+                        @Override
+                        protected void onCurrentProfileChanged(Profile oldProf, Profile newProf) {
+                            // profile2 is the new profile
+                            Log.v("facebook - profile", newProf.getName());
+                            Profile.setCurrentProfile(newProf);
+                        }
+                    };
+                    mProfileTracker.startTracking();
+                } else {
+                    profile = Profile.getCurrentProfile();
+                    Log.v("facebook - profile", profile.getName());
                 }
-                System.out.println("WTF: "+ profile.getName()+ " --- "+loginResult.getAccessToken().getUserId() + " Token: " + loginResult.getAccessToken().getToken());
+                transition(Profile.getCurrentProfile().getName());
+//                System.out.println("WTF: "+ " --- "+loginResult.getAccessToken().getUserId() + " Token: " + loginResult.getAccessToken().getToken());
             }
 
             @Override
@@ -281,7 +318,7 @@ public class LoginActivity extends AppCompatActivity {
             if (success) {
                 finish();
                 // TODO Transition here
-                transition();
+                transition(mUserNameView.getText().toString());
             } else {
                 mPhoneNoView.setError("Phone number is invalid");
                 mPhoneNoView.requestFocus();
@@ -295,7 +332,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void transition() {
+    private void transition(String userName) {
 
         //Force bring down the keyboard
         // Check if no view has focus:
@@ -307,7 +344,6 @@ public class LoginActivity extends AppCompatActivity {
 
         Firebase firebase = new Firebase("https://wingbuddy.firebaseio.com/");
 
-        String userName = mUserNameView.getText().toString();
         String phoneNumber = mPhoneNoView.getText().toString();
         String friendPhoneNumber = mFriendPhoneNoView.getText().toString();
 
@@ -316,6 +352,7 @@ public class LoginActivity extends AppCompatActivity {
         firebase.child("Users").child(userName).setValue(user);
 
         Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
+        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         myIntent.putExtra("user_name", userName);
 
         startActivity(myIntent);

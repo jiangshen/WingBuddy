@@ -21,6 +21,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.login.LoginManager;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -35,6 +36,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     Button refreshButton;
+    TextView tvTitle;
     TextView tvRoomStatus;
     TextView tvLastSeen;
     TextView tvTimeElapsed;
@@ -66,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
         tvRoomStatus = (TextView) findViewById(R.id.tv_wingman_status);
         tvLastSeen = (TextView) findViewById(R.id.tv_wingman_last_seen);
         tvTimeElapsed = (TextView) findViewById(R.id.tv_time_elapsed);
+        tvTitle = (TextView) findViewById(R.id.tv_title);
+
+        tvTitle.setText(userName + "'s Control Panel");
 
         firebase.child("lastSeen").addValueEventListener(new ValueEventListener() {
             @Override
@@ -200,6 +205,7 @@ public class MainActivity extends AppCompatActivity {
                                 Intent myIntent = new Intent(MainActivity.this, LoginActivity.class);
                                 myIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);// clear back stack
                                 startActivity(myIntent);
+                                LoginManager.getInstance().logOut();
                                 finish();
                             }
                         })
