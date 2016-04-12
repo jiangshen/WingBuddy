@@ -15,4 +15,7 @@
     </string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_wingman_list">Wingmen in my area</string>
+
+    <string name="facebook_app_id">1697599483823766</string>
+
 </resources>

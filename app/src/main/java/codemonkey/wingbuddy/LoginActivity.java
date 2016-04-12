@@ -3,6 +3,7 @@ package codemonkey.wingbuddy;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
@@ -16,12 +17,23 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.Profile;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.firebase.client.Firebase;
+
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.FacebookSdk;
 
 /**
  * A login screen that offers login via email/password.
@@ -47,12 +59,48 @@ public class LoginActivity extends AppCompatActivity {
     private View mProgressView;
     private View mLoginFormView;
 
+//    Facebook Login
+    private LoginButton btnFBLogin;
+    private CallbackManager callbackManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Firebase.setAndroidContext(this);
 
         super.onCreate(savedInstanceState);
+
+//        Firebase
+        Firebase.setAndroidContext(this);
+
+//        Facebook Tracking
+        FacebookSdk.sdkInitialize(getApplicationContext());
+
         setContentView(R.layout.activity_login);
+
+        AppEventsLogger.activateApp(this);
+        callbackManager = CallbackManager.Factory.create();
+
+        btnFBLogin = (LoginButton) findViewById(R.id.fb_login_button);
+        btnFBLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                AccessToken accessToken = loginResult.getAccessToken();
+                Profile profile = Profile.getCurrentProfile();
+                if(profile != null){
+                    transition();
+                }
+                System.out.println("WTF: "+ profile.getName()+ " --- "+loginResult.getAccessToken().getUserId() + " Token: " + loginResult.getAccessToken().getToken());
+            }
+
+            @Override
+            public void onCancel() {
+                System.out.println("WTF: Canceled");
+            }
+
+            @Override
+            public void onError(FacebookException e) {
+                System.out.println("WTF: Error");
+            }
+        });
 
         //Custom fonts for welcome text
         Typeface tf = Typeface.createFromAsset(getAssets(), "akaDora.ttf");
@@ -84,6 +132,11 @@ public class LoginActivity extends AppCompatActivity {
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
     /**
@@ -228,23 +281,7 @@ public class LoginActivity extends AppCompatActivity {
             if (success) {
                 finish();
                 // TODO Transition here
-
-                Firebase firebase = new Firebase("https://wingbuddy.firebaseio.com/");
-
-                String userName = mUserNameView.getText().toString();
-                String phoneNumber = mPhoneNoView.getText().toString();
-                String friendPhoneNumber = mFriendPhoneNoView.getText().toString();
-
-                User user = new User(userName, phoneNumber, friendPhoneNumber);
-
-                firebase.child("Users").child(userName).setValue(user);
-
-
-                Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
-
-                myIntent.putExtra("user_name", userName);
-
-                startActivity(myIntent);
+                transition();
             } else {
                 mPhoneNoView.setError("Phone number is invalid");
                 mPhoneNoView.requestFocus();
@@ -256,5 +293,31 @@ public class LoginActivity extends AppCompatActivity {
             mAuthTask = null;
             showProgress(false);
         }
+    }
+
+    private void transition() {
+
+        //Force bring down the keyboard
+        // Check if no view has focus:
+        final View view = this.getCurrentFocus();
+        if (view != null) {
+            final InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+
+        Firebase firebase = new Firebase("https://wingbuddy.firebaseio.com/");
+
+        String userName = mUserNameView.getText().toString();
+        String phoneNumber = mPhoneNoView.getText().toString();
+        String friendPhoneNumber = mFriendPhoneNoView.getText().toString();
+
+        User user = new User(userName, phoneNumber, friendPhoneNumber);
+
+        firebase.child("Users").child(userName).setValue(user);
+
+        Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
+        myIntent.putExtra("user_name", userName);
+
+        startActivity(myIntent);
     }
 }
