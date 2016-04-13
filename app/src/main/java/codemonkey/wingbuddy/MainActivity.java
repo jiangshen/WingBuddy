@@ -21,7 +21,9 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.Profile;
 import com.facebook.login.LoginManager;
+import com.facebook.login.widget.ProfilePictureView;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tvRoomStatus;
     TextView tvLastSeen;
     TextView tvTimeElapsed;
+    ProfilePictureView profileImage;
 
     Switch musicSwitch;
 
@@ -70,7 +73,12 @@ public class MainActivity extends AppCompatActivity {
         tvTimeElapsed = (TextView) findViewById(R.id.tv_time_elapsed);
         tvTitle = (TextView) findViewById(R.id.tv_title);
 
-        tvTitle.setText(userName + "'s Control Panel");
+        tvTitle.setText(userName + "'s\nControl Panel");
+
+        if (intent.getBooleanExtra("is_facebook_login", false)) {
+            profileImage = (ProfilePictureView) findViewById(R.id.profilePicture);
+            profileImage.setProfileId(Profile.getCurrentProfile().getId());
+        }
 
         firebase.child("lastSeen").addValueEventListener(new ValueEventListener() {
             @Override
@@ -161,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
 
         new android.app.AlertDialog.Builder(MainActivity.this)
                 .setTitle("Wing Buddy")
-                .setMessage("This will send an SMS to:\n\n" + " Your roommate: " + currentUser.getRoommatePhoneNumber() + "\n\nShall I continue?")
+                .setMessage("This will send an SMS to:\n\n" + "Your roommate: " + currentUser.getRoommatePhoneNumber() + "\n\nShall I continue?")
                 .setPositiveButton("YES",
                         new DialogInterface.OnClickListener() {
                             @TargetApi(11)

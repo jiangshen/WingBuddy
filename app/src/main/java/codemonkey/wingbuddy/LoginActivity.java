@@ -124,7 +124,7 @@ public class LoginActivity extends AppCompatActivity {
                     profile = Profile.getCurrentProfile();
                     Log.v("facebook - profile", profile.getName());
                 }
-                transition(Profile.getCurrentProfile().getName());
+                transition(Profile.getCurrentProfile().getName(), true);
 //                System.out.println("WTF: "+ " --- "+loginResult.getAccessToken().getUserId() + " Token: " + loginResult.getAccessToken().getToken());
             }
 
@@ -318,7 +318,7 @@ public class LoginActivity extends AppCompatActivity {
             if (success) {
                 finish();
                 // TODO Transition here
-                transition(mUserNameView.getText().toString());
+                transition(mUserNameView.getText().toString(), false);
             } else {
                 mPhoneNoView.setError("Phone number is invalid");
                 mPhoneNoView.requestFocus();
@@ -332,7 +332,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void transition(String userName) {
+    private void transition(String userName, boolean isFBLogin) {
 
         //Force bring down the keyboard
         // Check if no view has focus:
@@ -354,7 +354,7 @@ public class LoginActivity extends AppCompatActivity {
         Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
         myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         myIntent.putExtra("user_name", userName);
-
+        myIntent.putExtra("is_facebook_login", isFBLogin);
         startActivity(myIntent);
     }
 }
