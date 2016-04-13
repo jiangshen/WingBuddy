@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         tvTimeElapsed = (TextView) findViewById(R.id.tv_time_elapsed);
         tvTitle = (TextView) findViewById(R.id.tv_title);
 
-        tvTitle.setText(userName + "'s\nControl Panel");
+        tvTitle.setText(userName);
 
         if (intent.getBooleanExtra("is_facebook_login", false)) {
             profileImage = (ProfilePictureView) findViewById(R.id.profilePicture);
@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int id) {
                                 try {
                                     SmsManager smsManager = SmsManager.getDefault();
-                                    smsManager.sendTextMessage(("+1"+currentUser.getRoommatePhoneNumber()), null, message, null, null);
+                                    smsManager.sendTextMessage((currentUser.getRoommatePhoneNumber()), null, message, null, null);
                                     Snackbar.make(view, "SMS sent", Snackbar.LENGTH_SHORT).show();
                                 }
                                 catch (Exception e) {

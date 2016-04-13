@@ -33,36 +33,8 @@
             android:orientation="horizontal"
             android:id="@+id/ll_title_wrapper"
             android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"
             android:gravity="center_horizontal">
-
-            <android.support.v7.widget.CardView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:gravity="center_horizontal"
-                android:layout_marginStart="8dp"
-                android:layout_marginBottom="8dp"
-                android:focusable="true"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:id="@+id/cv_profile_picture_wrapper" >
-
-                <com.facebook.login.widget.ProfilePictureView
-                    android:id="@+id/profilePicture"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:gravity="center_horizontal" />
-
-            </android.support.v7.widget.CardView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:id="@+id/tv_title"
-                android:text="Control Panel"
-                android:layout_marginStart="24dp"
-                android:layout_gravity="center_vertical"
-                android:textSize="24sp"/>
             
         </LinearLayout>
 
@@ -82,6 +54,49 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/ll_wingman_status_wrapper">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/ll_title"
+                    android:elevation="2dp"
+                    android:background="#607D8B">
+
+                    <com.facebook.login.widget.ProfilePictureView
+                        android:id="@+id/profilePicture"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:gravity="center_horizontal"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:orientation="vertical"
+                        android:layout_gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:id="@+id/tv_title"
+                            android:text="User Name"
+                            android:textColor="#fff"
+                            android:textSize="24sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Control Panel"
+                            android:textColor="@color/colorBackground"
+                            android:textSize="16sp"/>
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
                 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -116,7 +131,10 @@
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:text="Room is empty for"
-                        android:padding="18dp"/>
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:paddingStart="18dp"
+                        android:paddingEnd="18dp"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -128,7 +146,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/tv_time_elapsed"
                             android:text="Time Elapsed"
-                            android:paddingTop="18dp"
+                            android:paddingTop="8dp"
                             android:paddingLeft="18dp"
                             android:paddingRight="18dp"
                             android:paddingBottom="8dp"
@@ -145,9 +163,6 @@
                             android:visibility="gone"
                             />
                     </LinearLayout>
-
-
-
                 </LinearLayout>
 
                 <Button
