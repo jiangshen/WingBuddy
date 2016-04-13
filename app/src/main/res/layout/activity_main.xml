@@ -60,7 +60,7 @@
                 android:textStyle="bold"
                 android:id="@+id/tv_title"
                 android:text="Control Panel"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="24dp"
                 android:layout_gravity="center_vertical"
                 android:textSize="24sp"/>
             
