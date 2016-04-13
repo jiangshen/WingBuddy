@@ -26,14 +26,27 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
+        
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:id="@+id/tv_title"
-            android:text="Control Panel"
-            android:padding="12dp"/>
+            android:orientation="horizontal"
+            android:id="@+id/ll_title_wrapper"
+            android:layout_marginTop="12dp">
+            
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:id="@+id/tv_title"
+                android:text="Control Panel" />
+            
+        </LinearLayout>
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
@@ -113,9 +126,6 @@
                             android:paddingRight="18dp"
                             android:visibility="gone"
                             />
-
-
-
                     </LinearLayout>
 
 
@@ -154,7 +164,6 @@
                 android:onClick="notifyRoommate"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:id="@+id/cv_notify" >
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -186,7 +195,6 @@
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:background="#FFC107">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -195,7 +203,6 @@
                         android:text="Set\nMood"
                         android:textSize="18sp"
                         android:textColor="#fff" />
-
                     <Switch
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -219,7 +226,6 @@
                 android:foreground="?android:attr/selectableItemBackground"
                 android:id="@+id/cv_summon"
                 android:onClick="summonWingman">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -230,7 +236,6 @@
                     android:textSize="18sp"
                     android:textColor="#fff"
                     android:background="#E91E63" />
-
             </android.support.v7.widget.CardView>
 
         </LinearLayout>
