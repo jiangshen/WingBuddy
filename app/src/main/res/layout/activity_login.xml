@@ -104,8 +104,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Phone Number"
-                    android:imeActionId="@+id/login"
-                    android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionNext"
                     android:inputType="phone"
                     android:maxLines="1"
@@ -124,7 +122,6 @@
                     android:layout_height="wrap_content"
                     android:hint="Roommate's Phone Number"
                     android:imeActionId="@+id/login"
-                    android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionDone"
                     android:inputType="phone"
                     android:maxLines="1"
@@ -159,8 +156,6 @@
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
                 />
-
-
 
         </LinearLayout>
 

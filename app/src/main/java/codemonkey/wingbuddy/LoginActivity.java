@@ -248,6 +248,15 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
+
+            //Force bring down the keyboard
+            // Check if no view has focus:
+            final View view = this.getCurrentFocus();
+            if (view != null) {
+                final InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            }
+
             showProgress(true);
             mAuthTask = new UserLoginTask(userName, phoneNo);
             mAuthTask.execute((Void) null);
@@ -359,14 +368,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void transition(String userName, boolean isFBLogin) {
-
-        //Force bring down the keyboard
-        // Check if no view has focus:
-        final View view = this.getCurrentFocus();
-        if (view != null) {
-            final InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }
 
         Firebase firebase = new Firebase("https://wingbuddy.firebaseio.com/");
 
