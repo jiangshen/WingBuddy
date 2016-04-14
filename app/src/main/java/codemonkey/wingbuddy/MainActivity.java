@@ -225,6 +225,12 @@ public class MainActivity extends AppCompatActivity {
                 }).show();
     }
 
+    @Override
+    protected void onStop() {
+        LoginManager.getInstance().logOut();
+        super.onStop();
+    }
+
     public void updateDateText(long longDateValue, TextView roomStatus, TextView lastSeen, TextView timeGone) {
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yy");
         Date date = new Date(longDateValue);
