@@ -173,17 +173,17 @@ public class LoginActivity extends AppCompatActivity {
         // Set up the login form.
         mUserNameView = (AutoCompleteTextView) findViewById(R.id.text_user_name);
         mPhoneNoView = (EditText) findViewById(R.id.text_phone_number);
-        mPhoneNoView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        mFriendPhoneNoView = (EditText) findViewById(R.id.text_friend_phone_number);
+        mFriendPhoneNoView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.login || id == EditorInfo.IME_ACTION_DONE) {
+                if (id == R.id.sign_in_button || id == EditorInfo.IME_ACTION_DONE) {
                     attemptLogin();
                     return true;
                 }
                 return false;
             }
         });
-        mFriendPhoneNoView = (EditText) findViewById(R.id.text_friend_phone_number);
 
         Button mSignInButton = (Button) findViewById(R.id.button_sign_in);
         mSignInButton.setOnClickListener(new OnClickListener() {
